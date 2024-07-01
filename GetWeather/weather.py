@@ -16,13 +16,19 @@ async def get_weather(punct):
             wind = data['wind']['speed']
             length_day = datetime.datetime.fromtimestamp(data['sys']['sunset']) - datetime.datetime.fromtimestamp(
                 data['sys']['sunrise'])
+            description = data['weather'][0]['description'].capitalize()
             
-            return f'''Сейчас: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}
+            return f'''Сейчас: {datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3))).strftime('%Y-%m-%d %H:%M')} по МСК
+{'-' * 60}
 Погода в городе: {city}
-Температура: {temper}C°
-Влажность: {humidity} %
+На улице: {description}
+
+Температура воздуха: {temper}C°
+Влажность: {humidity}%
+
 Давление: {pressure} мм.рт.ст
 Ветер: {wind} м/с
+
 Продолжительность дня: {length_day}
 Хорошего дня!
 '''

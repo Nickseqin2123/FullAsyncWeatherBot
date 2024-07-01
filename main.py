@@ -24,7 +24,7 @@ async def go_start(message: Message):
 
 async def main():
     logging.basicConfig(level=logging.INFO)
-    bot = Bot(token='6486317181:AAHmGi76R9oOJctK6p6uXAB8gDN7sB-vI6c')
+    bot = Bot(token='')
     await dp.start_polling(bot)
 
 
